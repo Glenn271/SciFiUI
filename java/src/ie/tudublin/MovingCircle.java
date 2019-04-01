@@ -6,6 +6,7 @@ public class MovingCircle
 {
     private float x;
     private float dx = 1;
+    private float dy = 1;
     private float y;
     private float diameter;
     private float radius;
@@ -35,9 +36,15 @@ public class MovingCircle
     public void update()
     {
         x += dx;
+        y += dy;
         if ((x > ui.width - radius) || (x < radius))
         {
             dx *= -1;
+        }
+
+        if ((y > ui.height - radius) || (y < radius))
+        {
+            dy *= -1;
         }
     }
 }
