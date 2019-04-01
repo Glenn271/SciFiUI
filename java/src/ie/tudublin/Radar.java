@@ -43,6 +43,6 @@ public class Radar {
 
     public void update()
     {
-        theta += 0.01;
+        theta += 0.05;
     }
 }

@@ -8,6 +8,8 @@ public class UI extends PApplet
     MovingCircle mc;
     Radar r;
 
+    boolean tf = true;
+
     boolean[] keys = new boolean[1024];
 
     public void keyPressed()
@@ -43,13 +45,19 @@ public class UI extends PApplet
     public void draw()
     {
         background(0);
-        b.render();
 
-        mc.update();
-        mc.render();
+        if (tf == true)
+        {
+            b.render();
 
-        r.render();
-        r.update();
+            mc.update();
+            mc.render();
+    
+            r.render();
+            r.update();
+
+        }
+
         
 
         if (checkKey(LEFT))

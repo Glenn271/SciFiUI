@@ -5,8 +5,8 @@ import processing.core.PApplet;
 public class MovingCircle
 {
     private float x;
-    private float dx = 1;
-    private float dy = 1;
+    private float dx = 5;
+    private float dy = 5;
     private float y;
     private float diameter;
     private float radius;
