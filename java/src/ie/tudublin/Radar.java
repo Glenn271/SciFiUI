@@ -17,8 +17,8 @@ public class Radar {
     {
         this.ui = ui;
         this.theta = 0;
-        this.x = x;
-        this.y = y;
+        this.x = (float)(ui.width/12-diameter);
+        this.y = (float)(ui.height/12-diameter);
         this.diameter = diameter;
         radius = diameter / 2;
         this.x2 = 0;
@@ -27,8 +27,6 @@ public class Radar {
 
     public void render()
     {
-        x = ui.width/2;
-        y = ui.height/2;
         x2 = (float) (Math.sin(theta)* (radius)) + x;
         y2 = (float) (-Math.cos(theta)* (radius)) + y;
         ui.stroke(255);
@@ -36,8 +34,6 @@ public class Radar {
         ui.ellipse(x,y, diameter, diameter);
         ui.fill(255);
         ui.line(x,y,x2,y2);
-
-
     }
 
     public void update()
