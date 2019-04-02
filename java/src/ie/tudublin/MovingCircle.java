@@ -1,6 +1,6 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
+import processing.core.*;
 
 public class MovingCircle
 {
@@ -11,6 +11,7 @@ public class MovingCircle
     private float diameter;
     private float radius;
     private int hit = 1;
+    private int rand = 1;
     UI ui;
 
     public MovingCircle(UI ui, float x, float y, float diameter)
@@ -24,8 +25,9 @@ public class MovingCircle
     
     public void render()
     {
-        if (hit == -1)
-        ui.stroke(ui.random(0,255),ui.random(0,255),ui.random(0,255));
+        if (hit == -1) {
+            ui.stroke(0,rand,rand);
+        }
         else
         ui.stroke(255);
         ui.noFill();
@@ -45,12 +47,14 @@ public class MovingCircle
         {
             dx *= -1;
             hit *= -1;
+            rand = (int) ui.random(0, 255);
         }
 
         if ((y > ui.height - radius) || (y < radius))
         {
             dy *= -1;
             hit *= -1;
+            rand = (int) ui.random(0, 255);
         }
     }
 }
