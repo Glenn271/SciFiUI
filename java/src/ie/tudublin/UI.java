@@ -8,7 +8,6 @@ public class UI extends PApplet
     MovingCircle mc;
     Radar r;
 
-    boolean tf = true;
 
     boolean[] keys = new boolean[1024];
 
@@ -37,6 +36,7 @@ public class UI extends PApplet
 
     public void setup()
     {
+        for (int i = 0; i < 5; i++)
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new Radar(this,width/2,width/2,100);
@@ -46,17 +46,16 @@ public class UI extends PApplet
     {
         background(0);
 
-        if (tf == true)
-        {
-            b.render();
 
-            mc.update();
-            mc.render();
+        b.render();
+
+        mc.update();
+        mc.render();
     
-            r.render();
-            r.update();
+        r.render();
+        r.update();
 
-        }
+ 
 
         
 
