@@ -29,10 +29,13 @@ public class MovingCircle
             ui.stroke(0,rand,rand);
         }
         else
-        ui.stroke(255);
+        ui.stroke(rand,rand,0);
         ui.noFill();
         ui.ellipse(x, y, diameter, diameter);
-        ui.fill(255);
+        if (hit == -1)
+        ui.fill(0,rand,rand);
+        else
+        ui.fill(rand,rand,0);
         // Static field
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text("I am a moving circle", x, y);
