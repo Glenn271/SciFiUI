@@ -26,16 +26,16 @@ public class MovingCircle
     public void render()
     {
         if (hit == -1) {
-            ui.stroke(0,rand,rand);
+            ui.stroke(50,rand,rand);
         }
         else
-        ui.stroke(rand,rand,0);
+        ui.stroke(rand);
         ui.noFill();
         ui.ellipse(x, y, diameter, diameter);
         if (hit == -1)
-        ui.fill(0,rand,rand);
+        ui.fill(50,rand,rand);
         else
-        ui.fill(rand,rand,0);
+        ui.fill(rand);
         // Static field
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text("I am a moving circle", x, y);
