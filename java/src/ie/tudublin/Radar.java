@@ -6,7 +6,7 @@ import processing.core.PVector;
 public class Radar {
     private float x;
     private float y;
-    private float diameter;
+    float diameter;
     private float radius;
     private float theta;
     private float x2;
@@ -17,8 +17,8 @@ public class Radar {
     {
         this.ui = ui;
         this.theta = 0;
-        this.x = (float)(ui.width-diameter);
-        this.y = (float)(ui.height/6-diameter);
+        this.x = x;
+        this.y = y;
         this.diameter = diameter;
         radius = diameter / 2;
         this.x2 = 0;

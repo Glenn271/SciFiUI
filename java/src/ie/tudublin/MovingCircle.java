@@ -59,5 +59,10 @@ public class MovingCircle
             hit *= -1;
             rand = (int) ui.random(0, 255);
         }
+
+        if (ui.dist(ui.width/2,ui.height/2,ui.mc.x - radius, ui.mc.y - radius) == ui.r.diameter/2)
+        {
+            dy *= -1;
+        }
     }
 }
