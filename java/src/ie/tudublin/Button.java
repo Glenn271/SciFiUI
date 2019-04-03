@@ -35,8 +35,12 @@ public class Button
     public Button(TableRow tr)
     {
         // Constructor chaining
-        this(tr.getString("Name"), tr.getFloat("Price"));
+        this(tr.getString("Name"));
     }
+    
+    public Button(String string) {
+    }
+
     /**
      * @return the ui
      */
@@ -121,18 +125,5 @@ public class Button
         this.text = text;
     }
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }
