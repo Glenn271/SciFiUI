@@ -1,6 +1,8 @@
 package ie.tudublin;
 
 import processing.core.*;
+import processing.data.*;
+import java.util.ArrayList;
 
 public class MovingCircle
 {
@@ -21,6 +23,7 @@ public class MovingCircle
         this.y = y;
         this.diameter = diameter;
         radius = diameter / 2;
+
     }
     
     public void render()
@@ -38,6 +41,7 @@ public class MovingCircle
         ui.fill(rand);
         // Static field
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
+        ui.textSize(15);
         ui.text("I am a moving circle", x, y);
 
     }
@@ -60,9 +64,11 @@ public class MovingCircle
             rand = (int) ui.random(0, 255);
         }
 
-        if (ui.dist(ui.width/2,ui.height/2,ui.mc.x - radius, ui.mc.y - radius) == ui.r.diameter/2)
+        if (ui.dist(ui.width/2,ui.height/2, x - radius, y - radius) == 200)
         {
             dy *= -1;
-        }
+            dx *= -1;
+        } 
+
     }
 }

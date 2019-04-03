@@ -1,7 +1,6 @@
 package ie.tudublin;
 
 import processing.core.*;
-import processing.core.PVector;
 
 public class Radar {
     private float x;
@@ -13,8 +12,7 @@ public class Radar {
     private float y2;
     PApplet ui;
 
-    public Radar(PApplet ui, float x, float y, float diameter)
-    {
+    public Radar(PApplet ui, float x, float y, float diameter) {
         this.ui = ui;
         this.theta = 0;
         this.x = x;
@@ -25,24 +23,33 @@ public class Radar {
         this.y2 = radius;
     }
 
-    public void render()
-    {
-        x2 = (float) (Math.sin(theta)* (radius)) + x;
-        y2 = (float) (-Math.cos(theta)* (radius)) + y;
-        ui.stroke(0,255,0);
+    public void render() {
+        x2 = (float) (Math.sin(theta) * (radius)) + x;
+        y2 = (float) (-Math.cos(theta) * (radius)) + y;
+        ui.stroke(0, 255, 0);
         ui.noFill();
 
-        float circleGap = diameter/3;
-        for (int i = 0; i <=2; i++)
-        {
-            ui.ellipse(x,y, diameter - (circleGap*i), diameter - (circleGap*i));
+        float circleGap = diameter / 3;
+        for (int i = 0; i <= 2; i++) {
+            ui.ellipse(x, y, diameter - (circleGap * i), diameter - (circleGap * i));
         }
-        ui.fill(255);
+        ui.fill(0,255,0);
+        PFont tnr = ui.createFont("Times New Roman", 32);
+        ui.textFont(tnr);
+        ui.textAlign(PApplet.CENTER, PApplet.CENTER);
+        ui.textSize(50);
+        ui.text("ENEMY INBOUND", x, y- radius - 100);
         ui.line(x,y,x2,y2);
     }
 
     public void update()
     {
         theta += 0.05;
+    }
+
+    public void mouseClicked()
+    {
+        ui.fill(255,0,0);
+        ui.ellipse(ui.mouseX,ui.mouseY, 20,20);
     }
 }
