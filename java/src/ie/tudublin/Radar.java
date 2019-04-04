@@ -1,6 +1,7 @@
 package ie.tudublin;
 
 import processing.core.*;
+import java.util.Arrays;
 
 public class Radar {
     private float x;
@@ -38,8 +39,20 @@ public class Radar {
         ui.textFont(tnr);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.textSize(50);
-        ui.text("ENEMY INBOUND", x, y- radius - 100);
+        ui.text("SCANNING FOR TARGET", x, y- radius - 100);
         ui.line(x,y,x2,y2);
+        ui.textSize(30);
+        ui.text("Map", (float) (x + diameter * 1.5), y - radius - 100);
+
+		float numLines = 11;
+		float gap = 20;
+		for(int box = 0 ; box < numLines ; box ++)
+		{
+			ui.line((float) (x + diameter * 1.5), y - radius - 50 + (gap * box), 
+                    (float) (x + diameter * 1.5 + 100),
+                    y - radius - 50 + (gap * box));// x1,y1,x2,y2
+			//ui.line(y - radius - 50 + (gap * box),(float) (x + diameter * 1.5),y - radius - 50 + (gap * box), (float) (x + diameter * 1.5 + 100));
+		}
     }
 
     public void update()
