@@ -43,8 +43,8 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new Radar(this,width/2,height/2, 400);
-        s1 = new SidePanel(this, width, height/2, height);
-        s2 = new SidePanel(this, 0, height/2, height);
+        s1 = new SidePanel(this, width, height/2, width/3, height);
+        s2 = new SidePanel(this, 0, height/2, 0 + (width/3), height);
     }
 
  
@@ -64,6 +64,9 @@ public class UI extends PApplet
 
         s1.render();
         s2.render();
+
+        s1.update();
+        s2.update();
 
  /*       s1.update();
         s2.update();
