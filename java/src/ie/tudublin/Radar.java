@@ -41,9 +41,10 @@ public class Radar {
         ui.textSize(50);
         ui.text("SCANNING FOR TARGET", x, y- radius - 100);
         ui.line(x,y,x2,y2);
-        
+
         ui.ellipse(ui.width, ui.height/2,ui.width/3, ui.height);
         ui.ellipse(0, ui.height/2,ui.width/3, ui.height);
+        
         /*
         ui.textSize(30);
         ui.text("Map", (float) (x + diameter * 1.5), y - radius - 100);
