@@ -44,7 +44,7 @@ public class UI extends PApplet
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new Radar(this,width/2,height/2, 400);
         s1 = new SidePanel(this, width, height/2, width/3, height);
-        s2 = new SidePanel(this, 0, height/2, 0 + (width/3), height);
+        s2 = new SidePanel(this, 0, height/2, (width/3), height);
     }
 
  

@@ -29,7 +29,7 @@ public class SidePanel extends PApplet{
         else {
             ui.fill(255,0,0);  
         }  
-        ui.ellipse(x, y, x/3, diameter);
+        ui.ellipse(x, y, width, diameter);
     }
 
     public void update() {
