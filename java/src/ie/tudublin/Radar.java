@@ -44,7 +44,7 @@ public class Radar {
         ui.text("SCANNING FOR TARGET", x, y- radius - 100);
         ui.line(x,y,x2,y2);
         ui.noFill();
-        ui.rect(x - radius, gap, diameter,100);
+        //ui.rect(x - radius, gap, diameter,100);
         
 
         

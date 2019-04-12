@@ -11,6 +11,7 @@ public class UI extends PApplet
     Radar r;
     SidePanel s1;
     SidePanel s2;
+    IOBox iob;
 
 
     boolean[] keys = new boolean[1024];
@@ -45,6 +46,7 @@ public class UI extends PApplet
         r = new Radar(this,width/2,height/2, 400);
         s1 = new SidePanel(this, width, height/2, width/3, height);
         s2 = new SidePanel(this, 0, height/2, (width/3), height);
+        iob = new IOBox(this, (width/2)-200, height *0.8f,400,100);
     }
 
  
@@ -67,6 +69,8 @@ public class UI extends PApplet
 
         s1.update();
         s2.update();
+
+        iob.render();
 
  /*       s1.update();
         s2.update();
