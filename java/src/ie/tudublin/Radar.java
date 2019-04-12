@@ -12,6 +12,7 @@ public class Radar {
     private float x2;
     private float y2;
     PApplet ui;
+    public float gap;
 
     public Radar(PApplet ui, float x, float y, float diameter) {
         this.ui = ui;
@@ -22,6 +23,7 @@ public class Radar {
         radius = diameter / 2;
         this.x2 = 0;
         this.y2 = radius;
+        this.gap = ui.height * 0.8f;
     }
 
     public void render() {
@@ -41,9 +43,10 @@ public class Radar {
         ui.textSize(50);
         ui.text("SCANNING FOR TARGET", x, y- radius - 100);
         ui.line(x,y,x2,y2);
+        ui.noFill();
+        ui.rect(x - radius, gap, diameter,100);
+        
 
-        //ui.ellipse(ui.width, ui.height/2,ui.width/3, ui.height);
-        //ui.ellipse(0, ui.height/2,ui.width/3, ui.height);
         
         /*
         ui.textSize(30);
@@ -65,11 +68,10 @@ public class Radar {
     public void update()
     {
         theta += 0.05;
+
+        float disX = x - ui.mouseX;
+        float disY = y - ui.mouseY;
+
     }
 
-    public void mouseClicked()
-    {
-        ui.fill(255,0,0);
-        ui.ellipse(ui.mouseX,ui.mouseY, 20,20);
-    }
 }
