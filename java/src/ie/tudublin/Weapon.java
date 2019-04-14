@@ -80,6 +80,11 @@ public class Weapon
         desc = row.getString("Desc");
     }
 
+    public Weapon()
+    {
+        
+    }
+
 
 
 }

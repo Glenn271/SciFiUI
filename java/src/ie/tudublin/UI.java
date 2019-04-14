@@ -3,7 +3,6 @@ package ie.tudublin;
 import processing.core.*;
 import processing.data.*;
 import java.util.ArrayList;
-
 public class UI extends PApplet
 {
     Button b;
@@ -12,6 +11,8 @@ public class UI extends PApplet
     SidePanel s1;
     SidePanel s2;
     IOBox iob;
+
+    private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
 
 
     boolean[] keys = new boolean[1024];
@@ -34,9 +35,9 @@ public class UI extends PApplet
 
     public void settings()
     {
-        //size(800, 800);
+        size(800, 800);
         // Use fullscreen instead of size to make your interface fullscreen
-        fullScreen(); 
+        //fullScreen(); 
     }
 
     public void setup()
@@ -50,6 +51,20 @@ public class UI extends PApplet
     }
 
  
+    public void loadData() {
+        Table table = loadTable("weapons.csv", "header");
+
+        for (TableRow row : table.rows()) {
+            Weapon w = new Weapon(row);
+            weapons.add(w);
+        }
+    }
+
+    public void printWeapons() {
+        for (Weapon w : weapons) {
+            System.out.println(w);
+        }
+    }
 
     public void draw()
     {
