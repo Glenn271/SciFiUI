@@ -37,7 +37,7 @@ public class UI extends PApplet
     {
         size(800, 800);
         // Use fullscreen instead of size to make your interface fullscreen
-        //fullScreen(); 
+       // fullScreen(); 
     }
 
     public void setup()
@@ -48,6 +48,10 @@ public class UI extends PApplet
         s1 = new SidePanel(this, width, height/2, width/3, height);
         s2 = new SidePanel(this, 0, height/2, (width/3), height);
         iob = new IOBox(this, (width/2)-200, height *0.8f,400,100);
+
+        loadData();
+        printWeapons();
+
     }
 
  
