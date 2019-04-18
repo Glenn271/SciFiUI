@@ -70,6 +70,13 @@ public class UI extends PApplet
         }
     }
 
+    public void drawWeapons()
+    {
+        for (Weapon w : weapons)
+        {
+            text(w.getWeaponName(),(width/2)-200,height *0.8f);
+        }
+    }
     public void draw()
     {
         background(0);
@@ -91,9 +98,8 @@ public class UI extends PApplet
 
         iob.render();
 
- /*       s1.update();
-        s2.update();
-*/
+        drawWeapons();
+        
         if (checkKey(LEFT))
         {
             System.out.println("Left arrow key pressed");
