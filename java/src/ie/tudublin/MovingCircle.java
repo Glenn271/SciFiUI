@@ -64,7 +64,7 @@ public class MovingCircle
             rand = (int) ui.random(0, 255);
         }
 
-        if (ui.dist(ui.width/2,ui.height/2, x - radius, y - radius) == 200)
+        if (PApplet.dist(ui.width/2,ui.height/2, x - radius, y - radius) == 200)
         {
             dy *= -1;
             dx *= -1;

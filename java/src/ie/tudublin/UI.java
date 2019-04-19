@@ -35,9 +35,9 @@ public class UI extends PApplet
 
     public void settings()
     {
-        size(800, 800);
+        //size(800, 800);
         // Use fullscreen instead of size to make your interface fullscreen
-       // fullScreen(); 
+       fullScreen(); 
     }
 
     public void setup()
@@ -72,16 +72,22 @@ public class UI extends PApplet
 
     public void drawWeapons()
     {
-        textSize(20);
-        textAlign(CENTER,CENTER);
+        int i = 0;
+        textSize(15);
+        textAlign(LEFT,CENTER);
         for (Weapon w : weapons)
         {
-            text(w.getWeaponName(),(width/2)-200,height *0.8f);
-            text(w.getMagSize(),(width/2)-200, height *0.8f - 25);
-            text(w.getDamage(),(width/2)-200, height *0.8f - 55);
-            text(w.getDesc(),(width/2)-200, height *0.8f - 85);
+            text("Weapon Name:    "+ w.getWeaponName(),(width/2)-100,height *0.81f);
+            text("Mag Size:    " +w.getMagSize(),(width/2)-100, height *0.825f);
+            text("Damage    " +w.getDamage(),(width/2)-100, height *0.84f);
+            text("Description    " +w.getDesc(),(width/2)-100, height *0.855f);
+            
+            i++;
+            if (i == 1) break;
+            
         }
     }
+
 
 
     public void draw()

@@ -44,25 +44,7 @@ public class Radar {
         ui.text("SCANNING FOR TARGET", x, y- radius - 100);
         ui.line(x,y,x2,y2);
         ui.noFill();
-        //ui.rect(x - radius, gap, diameter,100);
-        
 
-        
-        /*
-        ui.textSize(30);
-        ui.text("Map", (float) (x + diameter * 1.5), y - radius - 100);
-
-        float numLines = 11;
-        float lineSize = 100;
-		float gap = 20;
-		for(int box = 0 ; box < numLines ; box ++)
-		{
-			ui.line((ui.width -ui.width/3) - lineSize -gap, ui.height/3-gap*box - 100, 
-                    (ui.width -ui.width/3)+lineSize,
-                    ui.height/3 -(gap * box) -100);// x1,y1,x2,y2
-			//ui.line(y - radius - 50 + (gap * box),(float) (x + diameter * 1.5),y - radius - 50 + (gap * box), (float) (x + diameter * 1.5 + 100));
-        }
-        */
     }
 
     public void update()
