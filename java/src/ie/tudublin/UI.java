@@ -44,10 +44,10 @@ public class UI extends PApplet
     {
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
-        r = new Radar(this,width/2,height/2, 400);
+        r = new Radar(this,width/2,height/2, 350);
         s1 = new SidePanel(this, width, height/2, width/3, height);
         s2 = new SidePanel(this, 0, height/2, (width/3), height);
-        iob = new IOBox(this, (width/2)-200, height *0.8f,400,100);
+        iob = new IOBox(this, (width/2)-250, height *0.8f,500,200);
 
         loadData();
         printWeapons();
@@ -73,14 +73,14 @@ public class UI extends PApplet
     public void drawWeapons()
     {
         int i = 0;
-        textSize(15);
+        textSize(20);
         textAlign(LEFT,CENTER);
         for (Weapon w : weapons)
         {
             text("Weapon Name:    "+ w.getWeaponName(),(width/2)-100,height *0.81f);
-            text("Mag Size:    " +w.getMagSize(),(width/2)-100, height *0.825f);
-            text("Damage    " +w.getDamage(),(width/2)-100, height *0.84f);
-            text("Description    " +w.getDesc(),(width/2)-100, height *0.855f);
+            text("Mag Size:    " +w.getMagSize(),(width/2)-100, height *0.84f);
+            text("Damage:    " +w.getDamage(),(width/2)-100, height *0.87f);
+            text("Description:    " +w.getDesc(),(width/2)-100, height *0.9f);
             
             i++;
             if (i == 1) break;
