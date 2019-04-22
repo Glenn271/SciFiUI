@@ -1,102 +1,51 @@
 package ie.tudublin;
 
-import processing.core.*;
-import java.util.Arrays;
-import processing.data.TableRow;
+import processing.core.PVector;
 
-
-public abstract class Planet
+public class Planet extends Sprite
 {
-    protected PVector pos;
-    protected PVector forward;
-    protected float rotation;
-    protected float speed;
-    protected UI ui;
 
-
-    public Planet(UI ui, float x, float y, float rotation,float speed)
+    public Planet(UI ui)
     {
-        this.ui = ui;
-        pos = new PVector(x,y);
-        forward = new PVector(0,-1);
-        this.rotation = rotation;
-        this.speed = speed;
+        super(ui, ui.random(0, ui.width)
+        ,ui.random(0, ui.height) 
+        , 0, 2);
+        forward.x = ui.random(-1, 1);
+        forward.y = ui.random(-1, 1);
+        forward.normalize();
+      
+    }
+    @Override
+    public void update() {
+        //pos =+ forward * speed;
+        pos.add(PVector.mult(forward, speed));
+        rotation += 0.01f;
+
+        if (pos.x < 0)
+        {
+            pos.x = ui.width;
+        }
+        if (pos.x > ui.width)
+        {
+            pos.x = 0;
+        }
+        if (pos.y < 0)
+        {
+            pos.y = ui.height;
+        }
+        if (pos.y > ui.height)
+        {
+            pos.y = 0;
+        }
     }
 
-    public abstract void update();
-
-    public abstract void render();
-
-    /**
-     * @return the pos
-     */
-    public PVector getPos() {
-        return pos;
+    int size = 20;
+    @Override
+    public void render() {
+        ui.pushMatrix();
+        ui.translate(pos.x, pos.y);
+        ui.rotate(rotation);
+        ui.rect(-size / 2, -size / 2, size, size);
+        ui.popMatrix();
     }
-
-    /**
-     * @param pos the pos to set
-     */
-    public void setPos(PVector pos) {
-        this.pos = pos;
-    }
-
-    /**
-     * @return the forward
-     */
-    public PVector getForward() {
-        return forward;
-    }
-
-    /**
-     * @param forward the forward to set
-     */
-    public void setForward(PVector forward) {
-        this.forward = forward;
-    }
-
-    /**
-     * @return the rotation
-     */
-    public float getRotation() {
-        return rotation;
-    }
-
-    /**
-     * @param rotation the rotation to set
-     */
-    public void setRotation(float rotation) {
-        this.rotation = rotation;
-    }
-
-    /**
-     * @return the speed
-     */
-    public float getSpeed() {
-        return speed;
-    }
-
-    /**
-     * @param speed the speed to set
-     */
-    public void setSpeed(float speed) {
-        this.speed = speed;
-    }
-
-    /**
-     * @return the ui
-     */
-    public UI getUi() {
-        return ui;
-    }
-
-    /**
-     * @param ui the ui to set
-     */
-    public void setUi(UI ui) {
-        this.ui = ui;
-    }
-
 }
-
-   

@@ -13,7 +13,7 @@ public class UI extends PApplet
     IOBox iob;
 
     private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
-    public ArrayList<Planet> pllanets = new ArrayList<Planet>();
+    public ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 
 
     boolean[] keys = new boolean[1024];
@@ -49,6 +49,8 @@ public class UI extends PApplet
         s1 = new SidePanel(this, width, height/2, width/3, height);
         s2 = new SidePanel(this, 0, height/2, (width/3), height);
         iob = new IOBox(this, (width/2)-250, height *0.8f,500,200);
+
+        sprites.add(new Planet(this));
 
         loadData();
         printWeapons();
