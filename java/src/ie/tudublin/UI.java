@@ -13,6 +13,7 @@ public class UI extends PApplet
     IOBox iob;
 
     private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
+    public ArrayList<Planet> pllanets = new ArrayList<Planet>();
 
 
     boolean[] keys = new boolean[1024];
