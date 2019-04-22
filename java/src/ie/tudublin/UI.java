@@ -50,6 +50,7 @@ public class UI extends PApplet
         s2 = new SidePanel(this, 0, height/2, (width/3), height);
         iob = new IOBox(this, (width/2)-250, height *0.8f,500,200);
 
+        for (int i = 0; i <= 5; i++)
         sprites.add(new Planet(this));
 
         loadData();
@@ -102,7 +103,6 @@ public class UI extends PApplet
         float now = millis();
         timeDelta = (now - last) / 1000.0f;
         last = now;
-        background(255);
         
         fill(0);
         for(int i= sprites.size() - 1; i >= 0; i--)

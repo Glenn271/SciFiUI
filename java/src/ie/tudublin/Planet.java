@@ -9,7 +9,7 @@ public class Planet extends Sprite
     {
         super(ui, ui.random(0, ui.width)
         ,ui.random(0, ui.height) 
-        , 0, 2);
+        , 0, ui.random(2,10));
         forward.x = ui.random(-1, 1);
         forward.y = ui.random(-1, 1);
         forward.normalize();
@@ -40,14 +40,17 @@ public class Planet extends Sprite
     }
 
     int size = 20;
-    float planetSize = 0;
+    float planetSize = ui.random(50,150);
+    float r = ui.random(30,255);
+    float g = ui.random(50,100);
+    float b = ui.random(70,180);
+
     @Override
     public void render() {
-        planetSize = ui.random(50,100);
         ui.pushMatrix();
         ui.translate(pos.x, pos.y);
         ui.rotate(rotation);
-        ui.fill(ui.random(30,255),ui.random(50,100),ui.random(70,180));
+        ui.fill(r,g,b);
         ui.ellipse(-size / 2, -size / 2, planetSize, planetSize);
         ui.popMatrix();
     }
