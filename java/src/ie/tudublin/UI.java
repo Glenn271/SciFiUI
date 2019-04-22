@@ -92,11 +92,26 @@ public class UI extends PApplet
     }
 
 
+    public float timeDelta;
+    private float last;
 
     public void draw()
     {
         background(0);
 
+        float now = millis();
+        timeDelta = (now - last) / 1000.0f;
+        last = now;
+        background(255);
+        
+        fill(0);
+        for(int i= sprites.size() - 1; i >= 0; i--)
+        {
+            Sprite s = sprites.get(i);
+            s.render();
+            s.update();
+
+        }
 
         b.render();
 

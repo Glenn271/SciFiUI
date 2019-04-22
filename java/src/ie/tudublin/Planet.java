@@ -1,6 +1,6 @@
 package ie.tudublin;
 
-import processing.core.PVector;
+import processing.core.*;
 
 public class Planet extends Sprite
 {
@@ -40,12 +40,15 @@ public class Planet extends Sprite
     }
 
     int size = 20;
+    float planetSize = 0;
     @Override
     public void render() {
+        planetSize = ui.random(50,100);
         ui.pushMatrix();
         ui.translate(pos.x, pos.y);
         ui.rotate(rotation);
-        ui.rect(-size / 2, -size / 2, size, size);
+        ui.fill(ui.random(30,255),ui.random(50,100),ui.random(70,180));
+        ui.ellipse(-size / 2, -size / 2, planetSize, planetSize);
         ui.popMatrix();
     }
 }
