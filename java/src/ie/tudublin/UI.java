@@ -11,6 +11,7 @@ public class UI extends PApplet
     SidePanel s1;
     SidePanel s2;
     IOBox iob;
+    Logo l;
 
     private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
     public ArrayList<Sprite> sprites = new ArrayList<Sprite>();
@@ -46,16 +47,16 @@ public class UI extends PApplet
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new Radar(this,width/2,height/2, 350);
-        s1 = new SidePanel(this, width, height/2, width/3, height);
-        s2 = new SidePanel(this, 0, height/2, (width/3), height);
+        s1 = new SidePanel(this, width, height/2, 150, 150);
+        s2 = new SidePanel(this, 0, height/2, 150, 150);
         iob = new IOBox(this, (width/2)-250, height *0.8f,500,200);
+        l = new Logo(this, width - 150, 150, 100 );
 
         for (int i = 0; i <= 5; i++)
         sprites.add(new Planet(this));
 
         loadData();
         printWeapons();
-
     }
 
  
@@ -129,8 +130,11 @@ public class UI extends PApplet
 
         iob.render();
 
+
         drawWeapons();
 
+        l.render();
+        l.update();
         if (checkKey(LEFT))
         {
             System.out.println("Left arrow key pressed");
