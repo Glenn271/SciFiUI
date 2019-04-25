@@ -44,7 +44,7 @@ public class UI extends PApplet
 
     public void setup()
     {
-        PFont fnt = createFont("SciFiFont.TTF",40);
+        PFont fnt = createFont("HADES.otf",40);
         textFont(fnt);
 
         b = new Button(this, 50, 50, 100, 50, "I am a button");
