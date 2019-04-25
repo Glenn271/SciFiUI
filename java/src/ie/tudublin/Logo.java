@@ -8,34 +8,28 @@ public class Logo
     private float y;
     PApplet ui;
     private float size;
-    public Logo(PApplet ui, float x, float y, float size)
+    private float rectWidth;
+    private float rectHeight;
+    private String txt;
+    public Logo(PApplet ui, float x, float y, float rectWidth, float rectHeight, String txt)
     {
         this.ui = ui;
         this.x = x;
         this.y = y;
-        this.size = size;
+        this.rectWidth = rectWidth;
+        this.rectHeight = rectHeight;
+        this.txt = txt;
     }
-
-  /*  void setup()
-    {
-        rectMode(CENTER);
-    }
-*/
-    
-    float angle;
-    float jitter;
-    float low = (float) -0.1;
-    float high = (float) 0.1;
 
     public void render() {
-        ui.fill(255,0,0);
-        ui.rect(x, y, size,size);   
-      }
+        ui.noFill();
+        ui.stroke(0,255,0);
+        ui.rect(x,y,rectWidth,rectHeight);
+        ui.textAlign(PApplet.CENTER, PApplet.CENTER);
+        ui.textSize(100);
+        ui.text(txt, (ui.width/2), rectHeight * 0.33f);
 
-    public void update()
-    {
-        ui.rotate(PApplet.radians(60));
-    }
+      }
       
 
 
