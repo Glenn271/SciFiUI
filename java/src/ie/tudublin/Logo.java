@@ -34,7 +34,7 @@ public class Logo
 
     public void update()
     {
-        ui.rotateX(PApplet.radians(60));
+        ui.rotate(PApplet.radians(60));
     }
       
 

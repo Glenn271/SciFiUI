@@ -44,6 +44,9 @@ public class UI extends PApplet
 
     public void setup()
     {
+        PFont fnt = createFont("SciFiFont.TTF",40);
+        textFont(fnt);
+
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new Radar(this,width/2,height/2, 350);

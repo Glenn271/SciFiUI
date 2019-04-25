@@ -37,8 +37,6 @@ public class Radar {
             ui.ellipse(x, y, diameter - (circleGap * i), diameter - (circleGap * i));
         }
         ui.fill(0,255,0);
-        PFont tnr = ui.createFont("Times New Roman", 32);
-        ui.textFont(tnr);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.textSize(50);
         ui.text("SCANNING FOR TARGET", x, y- radius - 100);
