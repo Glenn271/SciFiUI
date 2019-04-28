@@ -20,11 +20,6 @@ public class Button
     private String text;
     private String name;
 
-    /*Minim minim = new Minim(this);
-    AudioPlayer music = minim.loadFile("track1.mp3");
-   */
-
-
     public Button(UI ui, float x, float y, float width, float height, String text)
     {
         this.ui = ui;
@@ -42,9 +37,10 @@ public class Button
         if (ui.mouseX > x && ui.mouseX < start + w 
         && ui.mouseY > y && ui.mouseY < y + h)
         {
-            System.out.println("Mouse Clicked");
+            System.out.println("Clicked");
         }
     }
+
 
     public void render()
     {

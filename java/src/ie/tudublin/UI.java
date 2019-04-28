@@ -21,6 +21,8 @@ public class UI extends PApplet
     Grid g;
     boolean[] keys = new boolean[1024];
 
+    public int jukebox;
+
     private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
     public ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 
@@ -52,8 +54,9 @@ public class UI extends PApplet
     public void setup()
     {
         Minim minim = new Minim(this);
-        AudioPlayer music = minim.loadFile("track1.mp3");
-        music.play();
+        AudioPlayer music1 = minim.loadFile("track1.mp3");
+        music1.play();
+        //AudioPlayer music2 = minim.loadFile("track2.mp3");
 
         PFont fnt = createFont("HADES.otf",40);
         textFont(fnt);
@@ -72,6 +75,19 @@ public class UI extends PApplet
 
         loadData();
         printWeapons();
+    }
+
+    public void mousePressed() {
+        float x = 50;
+        float y = height*0.75f;
+        float w = 100;
+        float h = 50;
+        if (mouseX > x && mouseX < x + w 
+        && mouseY > y && mouseY < y + h)
+        {
+            jukebox++;
+            System.out.println("Jukebox= "+jukebox);
+        }
     }
 
  
@@ -128,7 +144,6 @@ public class UI extends PApplet
             s.update();
 
         }
-
         b.render();
 
         mc.update();
