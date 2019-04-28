@@ -20,6 +20,7 @@ public class UI extends PApplet
     Logo l;
     Grid g;
     boolean[] keys = new boolean[1024];
+    PImage bg;
 
     public int jukebox;
 
@@ -57,6 +58,8 @@ public class UI extends PApplet
         AudioPlayer music1 = minim.loadFile("track1.mp3");
         music1.play();
         //AudioPlayer music2 = minim.loadFile("track2.mp3");
+
+        bg = loadImage("bg.jpg");
 
         PFont fnt = createFont("HADES.otf",40);
         textFont(fnt);
@@ -130,7 +133,7 @@ public class UI extends PApplet
 
     public void draw()
     {
-        background(0);
+        background(bg);
 
         float now = millis();
         timeDelta = (now - last) / 1000.0f;

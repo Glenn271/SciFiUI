@@ -47,6 +47,7 @@ public class Planet extends Sprite
 
     @Override
     public void render() {
+        ui.noStroke();
         ui.pushMatrix();
         ui.translate(pos.x, pos.y);
         ui.rotate(rotation);
