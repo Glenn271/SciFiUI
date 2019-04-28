@@ -2,11 +2,12 @@ package ie.tudublin;
 
 import processing.core.*;
 import processing.data.*;
-import ddf.minim.AudioInput;
-import ddf.minim.AudioSample;
-import ddf.minim.Minim;
-import ddf.minim.analysis.FFT;
-import ddf.minim.analysis.WindowFunction;
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
 import processing.core.PApplet;
 
 public class Button
@@ -18,6 +19,11 @@ public class Button
     private float height;
     private String text;
     private String name;
+
+    /*Minim minim = new Minim(this);
+    AudioPlayer music = minim.loadFile("track1.mp3");
+   */
+
 
     public Button(UI ui, float x, float y, float width, float height, String text)
     {
@@ -39,7 +45,7 @@ public class Button
             System.out.println("Mouse Clicked");
         }
     }
-    
+
     public void render()
     {
         float start = x;
@@ -57,7 +63,6 @@ public class Button
         && ui.mouseY > y && ui.mouseY < y + h)
         {
             ui.fill(255,0,0);
-            System.out.println("Mouse Clicked");
         }
     }  
 

@@ -5,7 +5,7 @@ import processing.data.*;
 import java.util.ArrayList;
 import ddf.minim.AudioInput;
 import ddf.minim.AudioSample;
-import ddf.minim.Minim;
+import ddf.minim.*;
 import ddf.minim.analysis.FFT;
 import ddf.minim.analysis.WindowFunction;
 
@@ -23,6 +23,8 @@ public class UI extends PApplet
 
     private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
     public ArrayList<Sprite> sprites = new ArrayList<Sprite>();
+
+
 
     public void keyPressed()
     {
@@ -49,6 +51,10 @@ public class UI extends PApplet
 
     public void setup()
     {
+        Minim minim = new Minim(this);
+        AudioPlayer music = minim.loadFile("track1.mp3");
+        music.play();
+
         PFont fnt = createFont("HADES.otf",40);
         textFont(fnt);
 
