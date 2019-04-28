@@ -3,6 +3,12 @@ package ie.tudublin;
 import processing.core.*;
 import processing.data.*;
 import java.util.ArrayList;
+import ddf.minim.AudioInput;
+import ddf.minim.AudioSample;
+import ddf.minim.Minim;
+import ddf.minim.analysis.FFT;
+import ddf.minim.analysis.WindowFunction;
+
 public class UI extends PApplet
 {
     Button b;
@@ -12,12 +18,11 @@ public class UI extends PApplet
     SidePanel s2;
     IOBox iob;
     Logo l;
+    Grid g;
+    boolean[] keys = new boolean[1024];
 
     private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
     public ArrayList<Sprite> sprites = new ArrayList<Sprite>();
-
-
-    boolean[] keys = new boolean[1024];
 
     public void keyPressed()
     {
@@ -47,13 +52,14 @@ public class UI extends PApplet
         PFont fnt = createFont("HADES.otf",40);
         textFont(fnt);
 
-       // b = new Button(this, 50, 50, 100, 50, "I am a button");
+        b = new Button(this, 50, height*0.75f, 100, 50, "JUKEBOX");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new Radar(this,width/2,height/2, 350);
         s1 = new SidePanel(this, width, height/2, 150, 150);
         s2 = new SidePanel(this, 0, height/2, 150, 150);
         iob = new IOBox(this, (width/2)-250, height *0.8f,500,200);
         l = new Logo(this,0, 0, width,height/5, "BENATAR 2.0");
+        g = new Grid(this, 100, height * 0.25f, 200,200);
 
         for (int i = 0; i <= 5; i++)
         sprites.add(new Planet(this));
@@ -117,7 +123,7 @@ public class UI extends PApplet
 
         }
 
-        //b.render();
+        b.render();
 
         mc.update();
         mc.render();
@@ -137,6 +143,7 @@ public class UI extends PApplet
         drawWeapons();
 
         l.render();
+        g.render();
 
 
 

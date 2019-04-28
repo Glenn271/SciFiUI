@@ -2,6 +2,12 @@ package ie.tudublin;
 
 import processing.core.*;
 import processing.data.*;
+import ddf.minim.AudioInput;
+import ddf.minim.AudioSample;
+import ddf.minim.Minim;
+import ddf.minim.analysis.FFT;
+import ddf.minim.analysis.WindowFunction;
+import processing.core.PApplet;
 
 public class Button
 {
@@ -23,21 +29,44 @@ public class Button
         this.text = text;
     }
 
+    public void mousePressed(){
+        float start = x;
+        float w = width;
+        float h = height;
+        if (ui.mouseX > x && ui.mouseX < start + w 
+        && ui.mouseY > y && ui.mouseY < y + h)
+        {
+            System.out.println("Mouse Clicked");
+        }
+    }
+    
     public void render()
     {
+        float start = x;
+        float w = width;
+        float h = height;
+
         ui.noFill();
         ui.stroke(255);
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.textSize(15);
         ui.text(text, x + width * 0.5f, y + height * 0.5f);
-    }
 
-    public Button(TableRow tr)
+        if (ui.mouseX > x && ui.mouseX < start + w 
+        && ui.mouseY > y && ui.mouseY < y + h)
+        {
+            ui.fill(255,0,0);
+            System.out.println("Mouse Clicked");
+        }
+    }  
+
+ /*   public Button(TableRow tr)
     {
         // Constructor chaining
         this(tr.getString("Name"));
     }
+*/
     
     public Button(String string) {
     }
