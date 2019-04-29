@@ -76,7 +76,7 @@ public class UI extends PApplet
         for (int i = 0; i <= 5; i++)
         sprites.add(new Planet(this));
 
-        for (int i = 0; i <= 20; i++)
+        for (int i = 0; i <= 50; i++)
         sprites.add(new Star(this));
 
         loadData();

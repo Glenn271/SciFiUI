@@ -7,11 +7,26 @@ public class Star extends Sprite
 
     public Star(UI ui)
     {
-        super(ui, ui.random(0, ui.width)
-        ,ui.random(0, ui.height) 
-        , 0, ui.random(2,10));
-        forward.x = 1;
+        super(ui, ui.random((ui.width/2)-10, (ui.width/2)+10)
+        ,ui.random((ui.height/2)-10, (ui.height/2)+10)
+        , 0, 5);
+        if (pos.x < ui.width/2)
+        {
+            forward.x = -1;
+            forward.y = ui.random(-1,1);
+        }
+
+        if (pos.x > ui.width/2)
+        {
+            forward.x = 1;
+            forward.y = ui.random(-1,1);
+        }
+
+
+        /*forward.x = 1;
         forward.y = ui.random(-1, 1);
+        */
+
         forward.normalize();
       
     }
@@ -23,23 +38,28 @@ public class Star extends Sprite
 
         if (pos.x < 0)
         {
-            pos.x = ui.width;
+            pos.x = ui.width/2 - 10;
+            pos.y = ui.height/2;
         }
         if (pos.x > ui.width)
         {
-            pos.x = 0;
+            pos.x = ui.width/2 + 10;
+            pos.y = ui.height/2;
         }
         if (pos.y < 0)
         {
-            pos.y = ui.height;
+            pos.x = ui.width/2;
+            pos.y = ui.height/2 -10;
+
         }
         if (pos.y > ui.height)
         {
-            pos.y = 0;
+            pos.x = ui.width/2;
+            pos.y = ui.height/2 +10;
         }
     }
 
-    int size = 20;
+    int size = 5;
 
     @Override
     public void render() {
