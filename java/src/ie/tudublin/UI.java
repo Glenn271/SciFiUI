@@ -7,7 +7,6 @@ import ddf.minim.AudioInput;
 import ddf.minim.AudioSample;
 import ddf.minim.*;
 import ddf.minim.analysis.FFT;
-import ddf.minim.analysis.WindowFunction;
 
 public class UI extends PApplet
 {
@@ -20,7 +19,7 @@ public class UI extends PApplet
     Logo l;
     Grid g;
     boolean[] keys = new boolean[1024];
-    PImage bg;
+    IOBox iob2;
 
     AudioInput ai;
     FFT fft;
@@ -66,10 +65,8 @@ public class UI extends PApplet
     {
         Minim minim = new Minim(this);
         AudioPlayer music1 = minim.loadFile("track1.mp3");
-        music1.play();
+        //music1.play();
         //AudioPlayer music2 = minim.loadFile("track2.mp3");
-
-        bg = loadImage("bg.jpg");
 
         PFont fnt = createFont("HADES.otf",40);
         textFont(fnt);
@@ -82,6 +79,7 @@ public class UI extends PApplet
         iob = new IOBox(this, (width/2)-250, height *0.8f,500,200);
         l = new Logo(this,0, 0, width,height/5, "BENATAR 2.0");
         g = new Grid(this, 100, height * 0.25f, 200,200);
+        iob2 = new IOBox(this, width-540, height*0.8f, 500,200);
 
         for (int i = 0; i <= 5; i++)
         sprites.add(new Planet(this));
@@ -146,7 +144,6 @@ public class UI extends PApplet
 
     public void draw()
     {
-        //background(bg);
         background(0);
 
         float now = millis();
@@ -154,6 +151,7 @@ public class UI extends PApplet
         last = now;
         
         fill(0);
+
         for(int i= sprites.size() - 1; i >= 0; i--)
         {
             Sprite s = sprites.get(i);
@@ -176,6 +174,7 @@ public class UI extends PApplet
         s2.update();
 
         iob.render();
+        iob2.render();
 
 
         drawWeapons();
@@ -200,7 +199,7 @@ public class UI extends PApplet
 
         for(int i = 0 ; i < audioWidth ; i ++)
         {
-            stroke(map(i, 0, ai.bufferSize(), 0, 255), 255, 255);
+            stroke(map(i, 0, ai.bufferSize(), 0, 255), 255, 255); 
             line(i+gap, middle, i+gap, middle + ai.left.get(i) *middle/2);
         }
 
