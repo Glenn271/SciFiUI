@@ -65,7 +65,7 @@ public class UI extends PApplet
     {
         Minim minim = new Minim(this);
         AudioPlayer music1 = minim.loadFile("track1.mp3");
-        //music1.play();
+        music1.play();
         //AudioPlayer music2 = minim.loadFile("track2.mp3");
 
         PFont fnt = createFont("HADES.otf",40);
@@ -100,7 +100,7 @@ public class UI extends PApplet
         && mouseY > y && mouseY < y + h)
         {
             jukebox++;
-            System.out.println("Jukebox= "+jukebox);
+            //System.out.println("Jukebox= "+jukebox);
         }
     }
 

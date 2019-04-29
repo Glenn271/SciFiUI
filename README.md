@@ -1,12 +1,13 @@
 # SciFi UI Project
 
-Name:
+Name: Glenn Moore
 
-Student Number: 
+Student Number: C17390923
 
-Fork this repository and use it a starter project for your assignment
 
 # Description of the assignment
+For this assignment, I decided to do a UI for a Sci-Fi spaceship. The ship I took inspiration from was the 
+Benatar in Guardians of the Galaxy.
 
 # Instructions
 
