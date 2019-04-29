@@ -56,7 +56,7 @@ public class UI extends PApplet
     {
         Minim minim = new Minim(this);
         AudioPlayer music1 = minim.loadFile("track1.mp3");
-        music1.play();
+        //music1.play();
         //AudioPlayer music2 = minim.loadFile("track2.mp3");
 
         bg = loadImage("bg.jpg");
@@ -75,6 +75,9 @@ public class UI extends PApplet
 
         for (int i = 0; i <= 5; i++)
         sprites.add(new Planet(this));
+
+        for (int i = 0; i <= 20; i++)
+        sprites.add(new Star(this));
 
         loadData();
         printWeapons();
@@ -133,7 +136,8 @@ public class UI extends PApplet
 
     public void draw()
     {
-        background(bg);
+        //background(bg);
+        background(0);
 
         float now = millis();
         timeDelta = (now - last) / 1000.0f;
@@ -145,8 +149,8 @@ public class UI extends PApplet
             Sprite s = sprites.get(i);
             s.render();
             s.update();
-
         }
+
         b.render();
 
         mc.update();
