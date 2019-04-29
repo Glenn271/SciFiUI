@@ -169,6 +169,9 @@ public class UI extends PApplet
         l.render();
         g.render();
 
+        ellipse(mouseX,mouseY, 40,40);
+        ellipse(mouseX, mouseY,1,1);
+        noCursor();
 
 
         if (checkKey(LEFT))
