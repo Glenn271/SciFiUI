@@ -195,11 +195,13 @@ public class UI extends PApplet
         float middle = audioHeight; 
 
         rect(gap, height *0.8f,audioWidth,200);
+        textSize(30);
+        text("Primary Radio", audioWidth/2, height * 0.78f);
 
         for(int i = 0 ; i < audioWidth ; i ++)
         {
             stroke(map(i, 0, ai.bufferSize(), 0, 255), 255, 255);
-            line(i+gap, middle, i+gap, middle + ai.left.get(i) *middle);
+            line(i+gap, middle, i+gap, middle + ai.left.get(i) *middle/2);
         }
 
         fft.forward(ai.left);
