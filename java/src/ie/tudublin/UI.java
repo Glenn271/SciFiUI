@@ -22,6 +22,13 @@ public class UI extends PApplet
     boolean[] keys = new boolean[1024];
     PImage bg;
 
+    AudioInput ai;
+    FFT fft;
+    Minim minim;
+    public static final int FRAME_SIZE = 1024;
+    public static final int SAMPLE_RATE = 44100;
+    public static final int BITS_PER_SAMPLE = 16;
+
     public int jukebox;
 
     private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
@@ -50,6 +57,9 @@ public class UI extends PApplet
         //size(800, 800);
         // Use fullscreen instead of size to make your interface fullscreen
        fullScreen(); 
+       minim = new Minim(this);
+        ai = minim.getLineIn(Minim.MONO, FRAME_SIZE, SAMPLE_RATE, BITS_PER_SAMPLE);
+        fft = new FFT(FRAME_SIZE, SAMPLE_RATE);
     }
 
     public void setup()
@@ -64,7 +74,7 @@ public class UI extends PApplet
         PFont fnt = createFont("HADES.otf",40);
         textFont(fnt);
 
-        b = new Button(this, 50, height*0.75f, 100, 50, "JUKEBOX");
+        b = new Button(this, 50, height*0.6f, 100, 50, "JUKEBOX");
         mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new Radar(this,width/2,height/2, 350);
         s1 = new SidePanel(this, width, height/2, 150, 150);
@@ -85,7 +95,7 @@ public class UI extends PApplet
 
     public void mousePressed() {
         float x = 50;
-        float y = height*0.75f;
+        float y = height*0.6f;
         float w = 100;
         float h = 50;
         if (mouseX > x && mouseX < x + w 
@@ -177,6 +187,23 @@ public class UI extends PApplet
         ellipse(mouseX, mouseY,1,1);
         noCursor();
 
+// START AUDIOVIS HERE
+        stroke(0,255,0);
+        float audioHeight = height*0.9f;
+        float gap = 20;
+        float audioWidth = ai.bufferSize()/2;
+        float middle = audioHeight; 
+
+        rect(gap, height *0.8f,audioWidth,200);
+
+        for(int i = 0 ; i < audioWidth ; i ++)
+        {
+            stroke(map(i, 0, ai.bufferSize(), 0, 255), 255, 255);
+            line(i+gap, middle, i+gap, middle + ai.left.get(i) *middle);
+        }
+
+        fft.forward(ai.left);
+//END AUDIOVIS HERE
 
         if (checkKey(LEFT))
         {

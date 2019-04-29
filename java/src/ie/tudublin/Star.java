@@ -69,7 +69,7 @@ public class Star extends Sprite
         ui.noStroke();
         ui.pushMatrix();
         ui.translate(pos.x, pos.y);
-        //ui.rotate(rotation);
+        ui.rotate(rotation);
         ui.fill(255);
         ui.ellipse(-size / 2, -size / 2,5,5);
         ui.popMatrix();
