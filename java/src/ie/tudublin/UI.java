@@ -21,6 +21,8 @@ public class UI extends PApplet
     boolean[] keys = new boolean[1024];
     IOBox iob2;
 
+    AudioPlayer music1;
+    AudioPlayer music2;
     AudioInput ai;
     FFT fft;
     Minim minim;
@@ -28,12 +30,10 @@ public class UI extends PApplet
     public static final int SAMPLE_RATE = 44100;
     public static final int BITS_PER_SAMPLE = 16;
 
-    public int jukebox;
+    public int jukebox = 0;
 
     private ArrayList<Weapon> weapons = new ArrayList<Weapon>();
     public ArrayList<Sprite> sprites = new ArrayList<Sprite>();
-
-
 
     public void keyPressed()
     {
@@ -63,10 +63,11 @@ public class UI extends PApplet
 
     public void setup()
     {
-        Minim minim = new Minim(this);
-        AudioPlayer music1 = minim.loadFile("track1.mp3");
-        music1.play();
-        //AudioPlayer music2 = minim.loadFile("track2.mp3");
+       // Minim minim = new Minim(this);
+        music1 = minim.loadFile("track1.mp3");
+
+       
+        music2 = minim.loadFile("track2.mp3");
 
         PFont fnt = createFont("HADES.otf",40);
         textFont(fnt);
@@ -91,18 +92,18 @@ public class UI extends PApplet
         printWeapons();
     }
 
-    public void mousePressed() {
-        float x = 50;
-        float y = height*0.6f;
-        float w = 100;
-        float h = 50;
-        if (mouseX > x && mouseX < x + w 
-        && mouseY > y && mouseY < y + h)
-        {
-            jukebox++;
-            //System.out.println("Jukebox= "+jukebox);
-        }
-    }
+    // public void mousePressed() {
+    //     float x = 50;
+    //     float y = height*0.6f;
+    //     float w = 100;
+    //     float h = 50;
+    //     if (mouseX > x && mouseX < x + w 
+    //     && mouseY > y && mouseY < y + h)
+    //     {
+    //         jukebox++;
+    //         //System.out.println("Jukebox= "+jukebox);
+    //     }
+    // }
 
  
     public void loadData() {
@@ -137,6 +138,33 @@ public class UI extends PApplet
         }
     }
 
+    public void jukeboxPlay()
+    {
+        if (keyPressed)
+        {
+            if (key == 'j')
+            jukebox++;
+            System.out.println(jukebox);
+        }
+        
+        if (jukebox == 1)
+        {
+            music2.pause();
+            music1.play();
+        }
+
+        if (jukebox == 2){
+          music1.pause();
+          music2.play();  
+        }
+
+        else
+        {
+            music2.pause();
+            music1.pause();
+        }
+        
+    }
 
     public float timeDelta;
     private float last;
@@ -204,6 +232,7 @@ public class UI extends PApplet
 
         fft.forward(ai.left);
 //END AUDIOVIS HERE
+        jukeboxPlay();
 
         if (checkKey(LEFT))
         {
