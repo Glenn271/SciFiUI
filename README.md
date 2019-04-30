@@ -479,9 +479,12 @@ the same arrayList (called sprites) and was able to animate each of them in a di
 abstract class. Given how I struggled with basic drawing and animation in Processing for a very long time, I am happy to say
 that I am now able to procedurally animate my own background for a sketch.
 
+<<<<<<< HEAD
 Lastly, I was impressed by my ability to use File I/0 correctly. I struggled a lot with importing .csv files and understanding
 how they worked, but I was able to implement it with the weapons.csv file. I was also able to successfully import sound files
 too, which was a great learning experience for me.
+=======
+>>>>>>> 32267da09d03610fbb26485d6d777021007d8476
 
 A couple of images of my assignment in action:
 
