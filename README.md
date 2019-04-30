@@ -26,7 +26,7 @@ This is a table:
 # How it works
 Here is a list of classes I have used in the assignment in order to make my UI the best it could be:
 
-###UI.java 
+### UI.java 
 This was my main class. It created the instances of all my other subclasses, as well as the work I did with the Minim library
 (as I has issues trying to implement it in a subclass). The draw() method here essentially drew the entire UI and contained the 
 ArrayLists used in the procedural animation.
@@ -181,7 +181,7 @@ public class UI extends PApplet
     }
 
 ```
-###Radar.java 
+### Radar.java 
 This was a fairly basic class, it draws a radar to the screen and uses the unit circle/trigonometry to make it move in the
 update() method.
 
@@ -223,7 +223,7 @@ update() method.
     }
 ```
 
-###IOBox.java
+### IOBox.java
 This drew the boxes for the soundwave, weapon, speedometer etc.
 ```Java
     public IOBox(PApplet ui, float x, float y, float boxWidth, float boxHeight) {
@@ -242,7 +242,7 @@ This drew the boxes for the soundwave, weapon, speedometer etc.
     }
 ```
 
-###Logo.java
+### Logo.java
 This made the box for the Benatar logo.
 ```Java
     public void render() {
@@ -255,7 +255,7 @@ This made the box for the Benatar logo.
 
       }
 ```
-###Main.java
+### Main.java
 This was simply used to run the UI.
 ```Java
 	public void startUI()
@@ -271,7 +271,7 @@ This was simply used to run the UI.
 		main.startUI();			
 	}
 ```
-###Sprite.java
+### Sprite.java
 An abstract class used for the stars and planets. The two classes implemented the render() and update() methods,
 but in different ways.
 
@@ -301,7 +301,7 @@ public abstract class Sprite
 }
 ```
 
-###Planet.java
+### Planet.java
 The Planet class that extends Sprite and overrides the render() and update() methods.
 ```Java
    @Override
@@ -347,7 +347,7 @@ The Planet class that extends Sprite and overrides the render() and update() met
 }
 ```
 
-###Star.java
+### Star.java
 Similar to Planet, procedurally generates stars by method overriding.
 ```Java
     @Override
@@ -428,7 +428,7 @@ Similar to Planet, procedurally generates stars by method overriding.
     }
 ```
 
-###Button.java
+### Button.java
 Used to make button, which I used for the Awesome Mix control.
 ```Java
     public void render()
@@ -452,7 +452,7 @@ Used to make button, which I used for the Awesome Mix control.
     }  
 ```
 
-###Weapon.java
+### Weapon.java
 Loads a list of weapons from a .csv file.
 ```Java
     public Weapon(TableRow row)
@@ -479,54 +479,11 @@ the same arrayList (called sprites) and was able to animate each of them in a di
 abstract class. Given how I struggled with basic drawing and animation in Processing for a very long time, I am happy to say
 that I am now able to procedurally animate my own background for a sketch.
 
-# Markdown Tutorial
+Lastly, I was impressed by my ability to use File I/0 correctly. I struggled a lot with importing .csv files and understanding
+how they worked, but I was able to implement it with the weapons.csv file. I was also able to successfully import sound files
+too, which was a great learning experience for me.
 
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-So is this without specifying the language:
-
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-This is an image using a relative URL:
+A couple of images of my assignment in action:
 
 ![An image](images/image1.png)
 ![An image](images/image2.png)
@@ -534,5 +491,8 @@ This is an image using a relative URL:
 This is a YouTube video of my assignment in action:
 
 [![YouTube](https://youtu.be/GioGgRyYHPg)
+
+
+
 
 
