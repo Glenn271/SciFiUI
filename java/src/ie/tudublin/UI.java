@@ -23,6 +23,15 @@ public class UI extends PApplet
 
     AudioPlayer music1;
     AudioPlayer music2;
+    AudioPlayer music3;
+    AudioPlayer music4;
+    AudioPlayer music5;
+    AudioPlayer music6;
+    AudioPlayer music7;
+    AudioPlayer music8;
+    AudioPlayer music9;
+    AudioPlayer music10;
+    AudioPlayer music11;
     AudioInput ai;
     FFT fft;
     Minim minim;
@@ -65,9 +74,16 @@ public class UI extends PApplet
     {
        // Minim minim = new Minim(this);
         music1 = minim.loadFile("track1.mp3");
-
-       
         music2 = minim.loadFile("track2.mp3");
+        music3 = minim.loadFile("track3.mp3");
+        music4 = minim.loadFile("track4.mp3");
+        music5 = minim.loadFile("track5.mp3");
+        music6 = minim.loadFile("track6.mp3");
+        music7 = minim.loadFile("track7.mp3");
+        music8 = minim.loadFile("track8.mp3");
+        music9 = minim.loadFile("track9.mp3");
+        music10 = minim.loadFile("track10.mp3");
+        music11 = minim.loadFile("track11.mp3");
 
         PFont fnt = createFont("HADES.otf",40);
         textFont(fnt);
@@ -92,18 +108,19 @@ public class UI extends PApplet
         printWeapons();
     }
 
-    // public void mousePressed() {
-    //     float x = 50;
-    //     float y = height*0.6f;
-    //     float w = 100;
-    //     float h = 50;
-    //     if (mouseX > x && mouseX < x + w 
-    //     && mouseY > y && mouseY < y + h)
-    //     {
-    //         jukebox++;
-    //         //System.out.println("Jukebox= "+jukebox);
-    //     }
-    // }
+    public void mousePressed() {
+        float x = 50;
+        float y = height*0.6f;
+        float w = 100;
+        float h = 50;
+        if (mouseX > x && mouseX < x + w 
+        && mouseY > y && mouseY < y + h)
+        {
+            jukebox++;
+            System.out.println(jukebox);
+            jukeboxPlay();
+        }
+    }
 
  
     public void loadData() {
@@ -140,16 +157,8 @@ public class UI extends PApplet
 
     public void jukeboxPlay()
     {
-        if (keyPressed)
-        {
-            if (key == 'j')
-            jukebox++;
-            System.out.println(jukebox);
-        }
-        
         if (jukebox == 1)
         {
-            music2.pause();
             music1.play();
         }
 
@@ -158,10 +167,59 @@ public class UI extends PApplet
           music2.play();  
         }
 
-        else
-        {
+        if (jukebox ==3){
             music2.pause();
-            music1.pause();
+            music3.play();  
+        }
+
+          if (jukebox ==4){
+            music3.pause();
+            music4.play();  
+        }
+
+          if (jukebox ==5){
+            music4.pause();
+            music5.play();  
+        }
+
+        if (jukebox ==6){
+            music5.pause();
+            music6.play();  
+        }
+
+        if (jukebox ==7){
+            music6.pause();
+            music7.play();  
+        }
+
+        if (jukebox == 8)
+        {
+            music7.pause();
+            music8.play();
+        }
+
+        if (jukebox == 9)
+        {
+            music8.pause();
+            music9.play();
+        }
+
+        if (jukebox == 10)
+        {
+            music9.pause();
+            music10.play();
+        }
+
+        if (jukebox == 11)
+        {
+            music10.pause();
+            music11.play();
+        }
+        
+        if (jukebox > 11)
+        {
+            music11.pause();
+            jukebox =0;
         }
         
     }
@@ -232,7 +290,6 @@ public class UI extends PApplet
 
         fft.forward(ai.left);
 //END AUDIOVIS HERE
-        jukeboxPlay();
 
         if (checkKey(LEFT))
         {
