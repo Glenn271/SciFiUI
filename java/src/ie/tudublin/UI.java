@@ -4,20 +4,15 @@ import processing.core.*;
 import processing.data.*;
 import java.util.ArrayList;
 import ddf.minim.AudioInput;
-import ddf.minim.AudioSample;
 import ddf.minim.*;
 import ddf.minim.analysis.FFT;
 
 public class UI extends PApplet
 {
     Button b;
-    MovingCircle mc;
     Radar r;
-    SidePanel s1;
-    SidePanel s2;
     IOBox iob;
     Logo l;
-    Grid g;
     boolean[] keys = new boolean[1024];
     IOBox iob2;
 
@@ -89,13 +84,9 @@ public class UI extends PApplet
         textFont(fnt);
 
         b = new Button(this, 50, height*0.6f, 100, 50, "JUKEBOX");
-        mc = new MovingCircle(this, width / 2, height / 2, 50);
         r = new Radar(this,width/2,height/2, 350);
-        s1 = new SidePanel(this, width, height/2, 150, 150);
-        s2 = new SidePanel(this, 0, height/2, 150, 150);
         iob = new IOBox(this, (width/2)-250, height *0.8f,500,200);
         l = new Logo(this,0, 0, width,height/5, "BENATAR 2.0");
-        g = new Grid(this, 100, height * 0.25f, 200,200);
         iob2 = new IOBox(this, width-540, height*0.8f, 500,200);
 
         for (int i = 0; i <= 5; i++)
@@ -245,18 +236,9 @@ public class UI extends PApplet
         }
 
         b.render();
-
-        mc.update();
-        mc.render();
-    
+   
         r.render();
         r.update();
-
-        s1.render();
-        s2.render();
-
-        s1.update();
-        s2.update();
 
         iob.render();
         iob2.render();
@@ -265,13 +247,12 @@ public class UI extends PApplet
         drawWeapons();
 
         l.render();
-        g.render();
+        
 
         ellipse(mouseX,mouseY, 40,40);
         ellipse(mouseX, mouseY,1,1);
         noCursor();
 
-// START AUDIOVIS HERE
         stroke(0,255,0);
         float audioHeight = height*0.9f;
         float gap = 20;
@@ -285,11 +266,11 @@ public class UI extends PApplet
         for(int i = 0 ; i < audioWidth ; i ++)
         {
             stroke(map(i, 0, ai.bufferSize(), 0, 255), 255, 255); 
-            line(i+gap, middle, i+gap, middle + ai.left.get(i) *middle/2);
+            line(i+gap, middle, i+gap, middle + ai.left.get(i) *middle/6);
         }
 
         fft.forward(ai.left);
-//END AUDIOVIS HERE
+
 
         if (checkKey(LEFT))
         {

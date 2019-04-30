@@ -1,7 +1,6 @@
 package ie.tudublin;
 
 import processing.core.*;
-import java.util.Arrays;
 
 public class IOBox {
     private float x;

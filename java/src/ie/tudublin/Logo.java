@@ -7,7 +7,6 @@ public class Logo
     private float x;
     private float y;
     PApplet ui;
-    private float size;
     private float rectWidth;
     private float rectHeight;
     private String txt;

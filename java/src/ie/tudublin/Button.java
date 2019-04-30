@@ -18,7 +18,6 @@ public class Button
     private float width;
     private float height;
     private String text;
-    private String name;
 
     public Button(UI ui, float x, float y, float width, float height, String text)
     {
@@ -61,14 +60,7 @@ public class Button
             ui.fill(255,0,0);
         }
     }  
-
- /*   public Button(TableRow tr)
-    {
-        // Constructor chaining
-        this(tr.getString("Name"));
-    }
-*/
-    
+   
     public Button(String string) {
     }
 

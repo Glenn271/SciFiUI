@@ -1,7 +1,6 @@
 package ie.tudublin;
 
 import processing.core.*;
-import java.util.Arrays;
 
 public class Radar {
     private float x;
@@ -48,10 +47,6 @@ public class Radar {
     public void update()
     {
         theta += 0.05;
-
-        float disX = x - ui.mouseX;
-        float disY = y - ui.mouseY;
-
     }
 
 }

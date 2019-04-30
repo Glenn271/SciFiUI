@@ -12,7 +12,7 @@ public class Star extends Sprite
         super(ui, ui.random((ui.width/2)-1, (ui.width/2)+1)
         ,ui.random((ui.height/2)-1, (ui.height/2)+1)
         , 0, 5);
-        
+
         if (pos.x < ui.width/2)
         {
             forward.x = -1;
@@ -56,19 +56,6 @@ public class Star extends Sprite
                 mph = 50;
              }
         }
-
-
-        // float disX = 0 - ui.mouseX;
-        // float disY = ui.height/2 - ui.mouseY;
-        // if(PApplet.sqrt((disX * disX) + (disY * disY)) < 150) {
-        //   this.speed = 10;
-        // } 
-    
-        // else {
-        //   this.speed = 5;
-        // }
-
-
 
          if (pos.x < 0)
          {

@@ -11,7 +11,6 @@ public class Button2
     private float width;
     private float height;
     private String text;
-    private String name;
 
     public Button2(UI ui, float x, float y, float width, float height, String text)
     {
