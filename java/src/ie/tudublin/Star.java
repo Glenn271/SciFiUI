@@ -40,31 +40,27 @@ public class Star extends Sprite
       
     }
 
-    public void checkPress()
-    {
-        {
-            this.speed = 10;
-            pressed++;
-            if (pressed % 2 == 0) 
-            this.speed = 5;
-            System.out.println("Speed = "+ this.speed);
-        }
-    }
-
     @Override
     public void update() {
         //pos =+ forward * speed;
         pos.add(PVector.mult(forward, speed));
         rotation += 0.01f;
         
-        if (ui.checkKey('s'))
+        if (ui.keyPressed)
         {
-            this.speed = 10;
-            pressed++;
-            if (pressed % 2 == 0) 
-            this.speed = 5;
-            System.out.println("Speed = "+ this.speed);
+            if (ui.key == 's' || ui.key == 'S')
+            {
+                this.speed = 10;
+                mph = 100;
+                System.out.println("Speed = "+ this.speed);
+            }
+
+            else{
+                this.speed = 5;
+                mph = 50;
+             }
         }
+
 
         // float disX = 0 - ui.mouseX;
         // float disY = ui.height/2 - ui.mouseY;
@@ -126,6 +122,5 @@ public class Star extends Sprite
         ui.ellipse(-size / 2, -size / 2,5,5);
         ui.popMatrix();
         drawText();
-        checkPress();
     }
 }
