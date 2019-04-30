@@ -48,7 +48,7 @@ public class Button
         float h = height;
 
         ui.noFill();
-        ui.stroke(255);
+        ui.stroke(0,255,0);
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.textSize(15);

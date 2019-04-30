@@ -1,8 +1,6 @@
 package ie.tudublin;
 
 import processing.core.*;
-import processing.data.*;
-import java.util.Arrays;
 
 public class SidePanel extends PApplet{
     private float x;

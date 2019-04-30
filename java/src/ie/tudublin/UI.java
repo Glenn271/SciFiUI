@@ -57,8 +57,6 @@ public class UI extends PApplet
 
     public void settings()
     {
-        //size(800, 800);
-        // Use fullscreen instead of size to make your interface fullscreen
        fullScreen(); 
        minim = new Minim(this);
         ai = minim.getLineIn(Minim.MONO, FRAME_SIZE, SAMPLE_RATE, BITS_PER_SAMPLE);
@@ -67,7 +65,6 @@ public class UI extends PApplet
 
     public void setup()
     {
-       // Minim minim = new Minim(this);
         music1 = minim.loadFile("track1.mp3");
         music2 = minim.loadFile("track2.mp3");
         music3 = minim.loadFile("track3.mp3");
@@ -270,12 +267,6 @@ public class UI extends PApplet
         }
 
         fft.forward(ai.left);
-
-
-        if (checkKey(LEFT))
-        {
-            System.out.println("Left arrow key pressed");
-        }
     }
 }
 

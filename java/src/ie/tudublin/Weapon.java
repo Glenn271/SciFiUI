@@ -1,7 +1,5 @@
 package ie.tudublin;
 
-import processing.core.*;
-import java.util.Arrays;
 import processing.data.TableRow;
 
 public class Weapon
