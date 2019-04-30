@@ -133,8 +133,7 @@ public class UI extends PApplet
             text("Description:    " +w.getDesc(),(width/2)-100, height *0.9f);
             
             i++;
-            if (i == 1) break;
-            
+            if (i == 1) break;         
         }
     }
 
