@@ -487,7 +487,7 @@ A couple of images of my assignment in action:
 
 This is a YouTube video of my assignment in action:
 
-[![YouTube]](https://www.youtube.com/watch?v=GioGgRyYHPg&feature=youtu.be)
+[![YouTube]](https://img.youtube.com/vi/GioGgRyYHPg/default.jpg)(https://www.youtube.com/watch?v=GioGgRyYHPg&feature=youtu.be)
 
 
 
